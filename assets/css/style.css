@@ -1,0 +1,44 @@
+.col-md-2:not(#heading){
+    margin:2%;
+    background-color:whitesmoke;
+    border: 1px solid black;
+    text-align:center;
+    opacity:0.7;
+}
+.col-md-4{
+    margin:2%;
+    color:whitesmoke;
+    text-align:center;
+}
+body {
+    background-image: url(../images//walkers.png);
+    background-size: cover;
+}
+.jumbotron {
+    background-image: url(../images/banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+#jumboTitle {
+    color:whitesmoke;
+}
+.btn {
+    margin:0 auto;
+}
+.instructions {
+    text-decoration: underline;
+}
+#blank{
+    visibility: hidden;
+}
+#heading {
+    margin:2%;
+    color:whitesmoke;
+    text-align:center;
+
+}
+#result {
+    text-decoration: underline;
+}
+
