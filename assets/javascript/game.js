@@ -6,8 +6,8 @@ var characters = [
       health: 1,
       attack: 1,
       counterAttack: 1,
-      beginImgUrl: "",
-      attackImgUrl: "",
+      beginImgUrl: "../images/luke.jpg",
+      attackImgUrl: "../images/lukegreen.jpg",
     },
     {
       name: "Obi Wan",
@@ -15,8 +15,8 @@ var characters = [
       health: 1,
       attack: 1,
       counterAttack: 1,
-      beginImgUrl: "",
-      attackImgUrl: "",
+      beginImgUrl: "../images/obiwancalm.jpg",
+      attackImgUrl: "../images/obiwan.jpg",
     },
     {
       name: "Darth Vader",
@@ -24,8 +24,8 @@ var characters = [
       health: 1,
       attack: 1,
       counterAttack: 1,
-      beginImgUrl: "",
-      attackImgUrl: "",
+      beginImgUrl: "../images/vader.jpg",
+      attackImgUrl: "../images/vaderatt.png",
     },
     {
       name: "Kylo Ren",
@@ -33,12 +33,14 @@ var characters = [
       health: 1,
       attack: 1,
       counterAttack: 1,
-      beginImgUrl: "",
-      attackImgUrl: "",
+      beginImgUrl: "../images/Kylo_Ren_rest.png",
+      attackImgUrl: "../images/kylo-ren-star-wars.jpg",
     }
   ];
-// audio files
 
+window.onload = function startgame(){
+    $(".hide1").hide();
+  }
 $(document).ready(function(){
     $(".hide1").hide();
 })
