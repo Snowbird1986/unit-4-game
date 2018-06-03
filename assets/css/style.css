@@ -13,6 +13,7 @@
 body {
     background-image: url(../images//walkers.png);
     background-size: cover;
+    background-repeat: no-repeat;
 }
 .jumbotron {
     background-image: url(../images/banner.jpg);
