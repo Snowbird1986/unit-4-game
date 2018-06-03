@@ -68,7 +68,7 @@ $(document).ready(function(){
         console.log(this)
         var enemies = $(".char1,.char2,.char3,.char4").not(this)
         console.log(enemies);
-        for (j=-1; j<enemies.length-1;j++){
+        for (j=0; j<enemies.length-1;j++){
             var enemiesClone = $(enemies[j]).clone(true)
             console.log (enemiesClone)
             $(".char"+(j+5)).replaceWith(enemiesClone)
