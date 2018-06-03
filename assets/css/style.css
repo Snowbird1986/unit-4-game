@@ -41,4 +41,7 @@ body {
 #result {
     text-decoration: underline;
 }
+.row {
+    text-align:center;
+}
 

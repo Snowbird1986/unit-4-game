@@ -3,7 +3,7 @@ var characters = [
     {
       name: "Luke",
       faction: "Jedi",
-      health: 1,
+      health: 150,
       attack: 1,
       counterAttack: 1,
       beginImgUrl: "../images/luke.jpg",
@@ -12,7 +12,7 @@ var characters = [
     {
       name: "Obi Wan",
       faction: "Jedi",
-      health: 1,
+      health: 120,
       attack: 1,
       counterAttack: 1,
       beginImgUrl: "../images/obiwancalm.jpg",
@@ -21,7 +21,7 @@ var characters = [
     {
       name: "Darth Vader",
       faction: "Sith",
-      health: 1,
+      health: 200,
       attack: 1,
       counterAttack: 1,
       beginImgUrl: "../images/vader.jpg",
@@ -30,7 +30,7 @@ var characters = [
     {
       name: "Kylo Ren",
       faction: "Sith",
-      health: 1,
+      health: 140,
       attack: 1,
       counterAttack: 1,
       beginImgUrl: "../images/Kylo_Ren_rest.png",
@@ -43,11 +43,15 @@ var characters = [
 //   }
 $(document).ready(function(){
     $(".hide1").hide();
-    // for (var i = 0; i < characters.length; i++) {
-        $("#char1a")==(characters[0].name);
-        $("#char2a")==(characters[1].name);
-        $("#char3a")==(characters[2].name);
-        $("#char4a")==(characters[3].name);
+    for (var i = 0; i < characters.length; i++) {
+        $("#char"+(i+1)+"a").html(characters[i].name);
+        $("#char"+(i+1)+"b").html("<img src='"+characters[i].beginImgUrl+"' alt='Char Image' class='characterImage'>");
+        $("#char"+(i+1)+"c").html(characters[i].health);
+    }
+        // $("#char1a").html(characters[0].name);
+        // $("#char2a").html(characters[1].name);
+        // $("#char3a").html(characters[2].name);
+        // $("#char4a").html(characters[3].name);
 
 })
 
