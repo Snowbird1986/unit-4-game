@@ -61,46 +61,33 @@ $(document).ready(function(){
     }
     
     var attackerSelected=0
-    if((attackerSelected===0)){
+    var defenderSelected=0
+    
         $(".char1,.char2,.char3,.char4").on("click", function() {
-            console.log(attackerSelected==0)
-            var attacker = this;
-            
-            var attackerClone = $(attacker).clone();
-            console.log (attackerClone)
-            $(".char8").replaceWith(attackerClone)
-            var defender = []
-            console.log(this)
-            var enemies = $(".char1,.char2,.char3,.char4").not(this)
-            console.log(enemies);
-            for (j=0; j<enemies.length-1;j++){
-                var enemiesClone = $(enemies[j]).clone(true)
-                console.log (enemiesClone)
-                $(".char"+(j+5)).replaceWith(enemiesClone)
+            if((attackerSelected===0)){
+                var attacker = this;
+                var attackerClone = $(attacker).clone();
+                $(".char8").replaceWith(attackerClone)
+                var enemies = $(".char1,.char2,.char3,.char4").not(this)
+                for (j=0; j<enemies.length-1;j++){
+                    var enemiesClone = $(enemies[j]).clone(true)
+                    $(".char"+(j+5)).replaceWith(enemiesClone)
+                }
+                $(".hide1").show();
+                $(".hide2").hide();
+                $(".hide3").hide();
+                attackerSelected++
             }
-            $(".hide1").show();
-            $(".hide2").hide();
-            $(".hide3").hide();
-            attackerSelected++
-            return attackerSelected 
-            console.log(attackerSelected)
-    
-            // $(".char8").clone(this)
-            
-            // enemies.push(characters.not(this));
-            // console.log(enemies);
-            // console.log(enemies)
-    
-    
-            // for (var i = 0; i < characters.length; i++) {
-            // $("#char"+(i+4)+"a").html(enemies[i].name);
-            // }
-        })
-    }
-    else {
-
+            else if (defenderSelected===0) {
+                var defender = this;
+                var defenderClone = $(defender).clone();
+                $(".char9").replaceWith(defenderClone).addClass(".char9")
+                $(this).hide()
+                defenderSelected++
+            }
+    })
     }
 
 
-})
+)
 
