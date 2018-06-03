@@ -48,10 +48,7 @@ $(document).ready(function(){
         $("#char"+(i+1)+"b").html('<img src="'+characters[i].beginImgUrl+'" alt="Char Image" class="characterImage" />');
         $("#char"+(i+1)+"c").html(characters[i].health);
     }
-        // $("#char1a").html(characters[0].name);
-        // $("#char2a").html(characters[1].name);
-        // $("#char3a").html(characters[2].name);
-        // $("#char4a").html(characters[3].name);
+
 
 })
 
