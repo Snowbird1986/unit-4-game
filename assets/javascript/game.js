@@ -82,6 +82,7 @@ $(document).ready(function(){
             $(".hide2").hide();
             $(".hide3").hide();
             attackerSelected++
+            return attackerSelected 
             console.log(attackerSelected)
     
             // $(".char8").clone(this)
