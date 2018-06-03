@@ -46,7 +46,8 @@ $(document).ready(function(){
     $(".hide1").hide();
     for (var i = 0; i < characters.length; i++) {
         $("#char"+(i+1)+"a").html(characters[i].name);
-        $("#char"+(i+1)+"b").html('<img src="'+(characters[i].beginImgUrl)+'" alt="Char Image" class="characterImage" />');
+        // $(".char"+(i+1)).val(characters[i].name);
+        // $("#char"+(i+1)+"b").html('<img src="'+(characters[i].beginImgUrl)+'" alt="Char Image" class="characterImage" />');
         // var img = $('<img />').attr({
         //     'src':characters[i].beginImgUrl,
         //     'alt':"Char Image",
@@ -54,19 +55,33 @@ $(document).ready(function(){
         // })
         // $("#char"+(i+1)+"b").html(img)
         $("#char"+(i+1)+"c").html(characters[i].health);
+        // $(".char"+(i+1)).val(characters[i].health);
         console.log (characters[i].beginImgUrl)
     }
     $(".char1,.char2,.char3,.char4").on("click", function() {
-        var attacker = []
+        var attacker = this;
+        
+        var attackerClone = $(attacker).clone();
+        console.log (attackerClone)
+        $(".char8").replaceWith(attackerClone)
         var defender = []
-        var enemies = []
+        console.log(this)
+        var enemies = $(".char1,.char2,.char3,.char4").not(this)
+        console.log(enemies);
+        for (j=-1; j<enemies.length-1;j++){
+            var enemiesClone = $(enemies[j]).clone(true)
+            console.log (enemiesClone)
+            $(".char"+(j+5)).replaceWith(enemiesClone)
+        }
         $(".hide1").show();
         $(".hide2").hide();
         $(".hide3").hide();
-        attacker.push(this.text());
-        enemies.push(characters.not(this));
-        console.log(attacker);
-        console.log(enemies)
+
+        // $(".char8").clone(this)
+        
+        // enemies.push(characters.not(this));
+        // console.log(enemies);
+        // console.log(enemies)
 
 
         // for (var i = 0; i < characters.length; i++) {
