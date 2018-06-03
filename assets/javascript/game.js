@@ -37,6 +37,7 @@ var characters = [
       attackImgUrl: "../images/kylo-ren-star-wars.jpg",
     }
   ];
+ 
 
 
 // window.onload = function startgame(){
@@ -58,36 +59,46 @@ $(document).ready(function(){
         // $(".char"+(i+1)).val(characters[i].health);
         console.log (characters[i].beginImgUrl)
     }
-    $(".char1,.char2,.char3,.char4").on("click", function() {
-        var attacker = this;
-        
-        var attackerClone = $(attacker).clone();
-        console.log (attackerClone)
-        $(".char8").replaceWith(attackerClone)
-        var defender = []
-        console.log(this)
-        var enemies = $(".char1,.char2,.char3,.char4").not(this)
-        console.log(enemies);
-        for (j=0; j<enemies.length-1;j++){
-            var enemiesClone = $(enemies[j]).clone(true)
-            console.log (enemiesClone)
-            $(".char"+(j+5)).replaceWith(enemiesClone)
-        }
-        $(".hide1").show();
-        $(".hide2").hide();
-        $(".hide3").hide();
+    
+    var attackerSelected=0
+    if((attackerSelected===0)){
+        $(".char1,.char2,.char3,.char4").on("click", function() {
+            console.log(attackerSelected)
+            var attacker = this;
+            
+            var attackerClone = $(attacker).clone();
+            console.log (attackerClone)
+            $(".char8").replaceWith(attackerClone)
+            var defender = []
+            console.log(this)
+            var enemies = $(".char1,.char2,.char3,.char4").not(this)
+            console.log(enemies);
+            for (j=0; j<enemies.length-1;j++){
+                var enemiesClone = $(enemies[j]).clone(true)
+                console.log (enemiesClone)
+                $(".char"+(j+5)).replaceWith(enemiesClone)
+            }
+            $(".hide1").show();
+            $(".hide2").hide();
+            $(".hide3").hide();
+            attackerSelected++
+            console.log(attackerSelected)
+    
+            // $(".char8").clone(this)
+            
+            // enemies.push(characters.not(this));
+            // console.log(enemies);
+            // console.log(enemies)
+    
+    
+            // for (var i = 0; i < characters.length; i++) {
+            // $("#char"+(i+4)+"a").html(enemies[i].name);
+            // }
+        })
+    }
+    else {
 
-        // $(".char8").clone(this)
-        
-        // enemies.push(characters.not(this));
-        // console.log(enemies);
-        // console.log(enemies)
-
-
-        // for (var i = 0; i < characters.length; i++) {
-        // $("#char"+(i+4)+"a").html(enemies[i].name);
-        // }
-    })
+    }
 
 
 })
