@@ -1,3 +1,4 @@
+// Global Variables 
 var characters = [
     {
       name: "Luke",
@@ -36,3 +37,9 @@ var characters = [
       attackImgUrl: "",
     }
   ];
+// audio files
+
+$(document).ready(function(){
+    $(".hide1").hide();
+})
+
