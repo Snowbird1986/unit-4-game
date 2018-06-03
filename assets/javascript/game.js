@@ -63,7 +63,7 @@ $(document).ready(function(){
     var attackerSelected=0
     if((attackerSelected===0)){
         $(".char1,.char2,.char3,.char4").on("click", function() {
-            console.log(attackerSelected)
+            console.log(attackerSelected==0)
             var attacker = this;
             
             var attackerClone = $(attacker).clone();
