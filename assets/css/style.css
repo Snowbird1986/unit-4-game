@@ -28,6 +28,7 @@ body {
 }
 .instructions {
     text-decoration: underline;
+    color: darkred
 }
 #blank{
     visibility: hidden;
