@@ -74,7 +74,7 @@ $(document).ready(function(){
                 var attacker = this;
                 attacker1.push(this)
                 console.log(this)
-                attackerValue.push($(this),val())
+                // attackerValue.push($("attacker1"),val())
                 console.log(attackerValue)
                 var attackerClone = $(attacker).clone();
                 $(".char8").replaceWith(attackerClone).attr("class","char8")
@@ -91,8 +91,8 @@ $(document).ready(function(){
             else if (defenderSelected===0) {
                 var defender = this;
                 defender1.push(this)
-                defenderValue.push($(this).val())
-                // console.log(this)
+                // defenderValue.push($("defender1").val())
+                console.log(this)
                 console.log(defenderValue)
                 var defenderClone = $(defender).clone();
                 $(".char9").replaceWith(defenderClone).attr("class","char9")
