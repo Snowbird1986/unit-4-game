@@ -4,8 +4,8 @@ var characters = [
       name: "Luke",
       faction: "Jedi",
       health: 150,
-      attack: 1,
-      counterAttack: 1,
+      attack: 10,
+      counterAttack: 15,
       beginImgUrl: "../images/luke.jpg",
       attackImgUrl: "../images/lukegreen.jpg",
     },
@@ -13,8 +13,8 @@ var characters = [
       name: "Obi Wan",
       faction: "Jedi",
       health: 120,
-      attack: 1,
-      counterAttack: 1,
+      attack: 7,
+      counterAttack: 5,
       beginImgUrl: "../images/obiwancalm.jpg",
       attackImgUrl: "../images/obiwan.jpg",
     },
@@ -22,8 +22,8 @@ var characters = [
       name: "Darth Vader",
       faction: "Sith",
       health: 200,
-      attack: 1,
-      counterAttack: 1,
+      attack: 9,
+      counterAttack: 12,
       beginImgUrl: "../images/vader.jpg",
       attackImgUrl: "../images/vaderatt.png",
     },
@@ -31,13 +31,14 @@ var characters = [
       name: "Kylo Ren",
       faction: "Sith",
       health: 140,
-      attack: 1,
-      counterAttack: 1,
+      attack: 8,
+      counterAttack: 9,
       beginImgUrl: "../images/Kylo_Ren_rest.png",
       attackImgUrl: "../images/kylo-ren-star-wars.jpg",
     }
   ];
- 
+var attacker1 = []
+var defender1 = []
 
 
 // window.onload = function startgame(){
@@ -55,7 +56,8 @@ $(document).ready(function(){
         //     'class': "characterImage",
         // })
         // $("#char"+(i+1)+"b").html(img)
-        $("#char"+(i+1)+"c").html(characters[i].health);
+        $("#char"+(i+1)+"c").html(characters[i].health).val(characters[i].health);
+        console.log($("#char"+(i+1)+"c").val())
         // $(".char"+(i+1)).val(characters[i].health);
         console.log (characters[i].beginImgUrl)
     }
@@ -66,8 +68,11 @@ $(document).ready(function(){
         $(".char1,.char2,.char3,.char4").on("click", function() {
             if((attackerSelected===0)){
                 var attacker = this;
+                attacker1.push(this)
+                // console.log(this)
+                // console.log(attacker1)
                 var attackerClone = $(attacker).clone();
-                $(".char8").replaceWith(attackerClone)
+                $(".char8").replaceWith(attackerClone).attr("class","char8")
                 var enemies = $(".char1,.char2,.char3,.char4").not(this)
                 for (j=0; j<enemies.length-1;j++){
                     var enemiesClone = $(enemies[j]).clone(true)
@@ -80,11 +85,18 @@ $(document).ready(function(){
             }
             else if (defenderSelected===0) {
                 var defender = this;
+                defender1.push(this)
+                // console.log(this)
+                // console.log(defender1)
                 var defenderClone = $(defender).clone();
-                $(".char9").replaceWith(defenderClone).addClass(".char9")
+                $(".char9").replaceWith(defenderClone).attr("class","char9")
                 $(this).hide()
                 defenderSelected++
             }
+        $(".btn-danger").on("click", function(){
+            console.log($("attacker1").find($(".char1a")).text())
+            console.log($("defender1").find($(".char4a")).text())
+        })
     })
     }
 
