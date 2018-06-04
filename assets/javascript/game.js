@@ -56,21 +56,26 @@ $(document).ready(function(){
         //     'class': "characterImage",
         // })
         // $("#char"+(i+1)+"b").html(img)
-        $("#char"+(i+1)+"c").html(characters[i].health).val(characters[i].health);
-        console.log($("#char"+(i+1)+"c").val())
+        $("#char"+(i+1)+"c").html(characters[i].health).val(characters[i].health)
+        $(".char"+(i+1)).val(i);
+        // console.log($("#char"+(i+1)+"c").val())
+        console.log($(".char"+(i+1)).val())
         // $(".char"+(i+1)).val(characters[i].health);
-        console.log (characters[i].beginImgUrl)
+        // console.log (characters[i].beginImgUrl)
     }
     
     var attackerSelected=0
     var defenderSelected=0
+    var attackerValue=0
+    var defenderValue=0
     
         $(".char1,.char2,.char3,.char4").on("click", function() {
             if((attackerSelected===0)){
                 var attacker = this;
                 attacker1.push(this)
-                // console.log(this)
-                // console.log(attacker1)
+                console.log(this)
+                attackerValue.push($(this),val())
+                console.log(attackerValue)
                 var attackerClone = $(attacker).clone();
                 $(".char8").replaceWith(attackerClone).attr("class","char8")
                 var enemies = $(".char1,.char2,.char3,.char4").not(this)
@@ -86,8 +91,9 @@ $(document).ready(function(){
             else if (defenderSelected===0) {
                 var defender = this;
                 defender1.push(this)
+                defenderValue.push($(this).val())
                 // console.log(this)
-                // console.log(defender1)
+                console.log(defenderValue)
                 var defenderClone = $(defender).clone();
                 $(".char9").replaceWith(defenderClone).attr("class","char9")
                 $(this).hide()
