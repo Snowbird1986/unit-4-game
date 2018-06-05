@@ -6,8 +6,8 @@ var characters = [
       health: 150,
       attack: 10,
       counterAttack: 15,
-      beginImgUrl: "../images/luke.jpg",
-      attackImgUrl: "../images/lukegreen.jpg",
+      beginImgUrl: "assets/images/luke.jpg",
+      attackImgUrl: "assets/images/lukegreen.jpg",
     },
     {
       name: "Obi Wan",
@@ -15,8 +15,8 @@ var characters = [
       health: 120,
       attack: 7,
       counterAttack: 5,
-      beginImgUrl: "../images/obiwancalm.jpg",
-      attackImgUrl: "../images/obiwan.jpg",
+      beginImgUrl: "assets/images/obiwancalm.jpg",
+      attackImgUrl: "assets/images/obiwan.jpg",
     },
     {
       name: "Darth Vader",
@@ -24,8 +24,8 @@ var characters = [
       health: 200,
       attack: 9,
       counterAttack: 12,
-      beginImgUrl: "../images/vader.jpg",
-      attackImgUrl: "../images/vaderatt.png",
+      beginImgUrl: "assets/images/vader.jpg",
+      attackImgUrl: "assets/images/vaderatt.png",
     },
     {
       name: "Kylo Ren",
@@ -33,8 +33,8 @@ var characters = [
       health: 140,
       attack: 8,
       counterAttack: 9,
-      beginImgUrl: "../images/Kylo_Ren_rest.png",
-      attackImgUrl: "../images/kylo-ren-star-wars.jpg",
+      beginImgUrl: "assets/images/Kylo_Ren_rest.png",
+      attackImgUrl: "assets/images/kylo-ren-star-wars.jpg",
     }
   ];
 var attacker1 = []
@@ -49,7 +49,7 @@ $(document).ready(function(){
     for (var i = 0; i < characters.length; i++) {
         $("#char"+(i+1)+"a").html(characters[i].name);
         // $(".char"+(i+1)).val(characters[i].name);
-        // $("#char"+(i+1)+"b").html('<img src="'+(characters[i].beginImgUrl)+'" alt="Char Image" class="characterImage" />');
+        $("#char"+(i+1)+"b").html('<img src='+characters[i].beginImgUrl+' alt="Char Image" class="characterImage" />');
         // var img = $('<img />').attr({
         //     'src':characters[i].beginImgUrl,
         //     'alt':"Char Image",
@@ -61,7 +61,7 @@ $(document).ready(function(){
         // console.log($("#char"+(i+1)+"c").val())
         console.log($(".char"+(i+1)).val())
         // $(".char"+(i+1)).val(characters[i].health);
-        // console.log (characters[i].beginImgUrl)
+        console.log (characters[i].beginImgUrl)
     }
     
     var attackerSelected=0
@@ -74,8 +74,10 @@ $(document).ready(function(){
                 var attacker = this;
                 attacker1.push(this)
                 console.log(this)
+                // console.log(this).val()
+                // console.log(attacker1)
                 // attackerValue.push($("attacker1"),val())
-                console.log(attackerValue)
+                // console.log(attackerValue)
                 var attackerClone = $(attacker).clone();
                 $(".char8").replaceWith(attackerClone).attr("class","char8")
                 var enemies = $(".char1,.char2,.char3,.char4").not(this)
