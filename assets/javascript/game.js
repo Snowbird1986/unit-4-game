@@ -60,30 +60,32 @@ $(document).ready(function(){
         $(".char"+(i+1)).val(i);
         // console.log($("#char"+(i+1)+"c").val())
         console.log($(".char"+(i+1)).val())
+        console.log($(".char"+(i+1)))
         // $(".char"+(i+1)).val(characters[i].health);
-        console.log (characters[i].beginImgUrl)
+        // console.log (characters[i].beginImgUrl)
     }
     
     var attackerSelected=0
     var defenderSelected=0
-    var attackerValue=0
-    var defenderValue=0
+    var attackerValue=[]
+    var defenderValue=[]
     
         $(".char1,.char2,.char3,.char4").on("click", function() {
             if((attackerSelected===0)){
                 var attacker = this;
-                attacker1.push(this)
+                // attacker1.push(this)
                 console.log(this)
-                // console.log(this).val()
+                console.log($(this).val())
                 // console.log(attacker1)
-                // attackerValue.push($("attacker1"),val())
-                // console.log(attackerValue)
+                attackerValue.push($(this).val())
+                console.log(attackerValue)
                 var attackerClone = $(attacker).clone();
                 $(".char8").replaceWith(attackerClone).attr("class","char8")
                 var enemies = $(".char1,.char2,.char3,.char4").not(this)
                 for (j=0; j<enemies.length-1;j++){
                     var enemiesClone = $(enemies[j]).clone(true)
                     $(".char"+(j+5)).replaceWith(enemiesClone)
+                    console.log($(".char"+(j+1)).not(this).val())
                 }
                 $(".hide1").show();
                 $(".hide2").hide();
@@ -92,9 +94,10 @@ $(document).ready(function(){
             }
             else if (defenderSelected===0) {
                 var defender = this;
-                defender1.push(this)
-                // defenderValue.push($("defender1").val())
+                // defender1.push(this)
                 console.log(this)
+                defenderValue.push($(this).val())
+                console.log($(this).val())
                 console.log(defenderValue)
                 var defenderClone = $(defender).clone();
                 $(".char9").replaceWith(defenderClone).attr("class","char9")
