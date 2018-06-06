@@ -82,6 +82,7 @@ $(document).ready(function(){
                 var attackerClone = $(attacker).clone();
                 $(".char8").replaceWith(attackerClone).attr("class","char8")
                 var enemies = $(".char1,.char2,.char3,.char4").not(this)
+                console.log(enemies)
                 for (j=0; j<enemies.length-1;j++){
                     var enemiesClone = $(enemies[j]).clone(true)
                     $(".char"+(j+5)).replaceWith(enemiesClone)
