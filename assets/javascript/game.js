@@ -8,6 +8,7 @@ var characters = [
       counterAttack: 15,
       beginImgUrl: "assets/images/luke.jpg",
       attackImgUrl: "assets/images/lukegreen.jpg",
+      damageIncrease: 8
     },
     {
       name: "Obi Wan",
@@ -17,6 +18,7 @@ var characters = [
       counterAttack: 5,
       beginImgUrl: "assets/images/obiwancalm.jpg",
       attackImgUrl: "assets/images/obiwan.jpg",
+      damageIncrease: 5
     },
     {
       name: "Darth Vader",
@@ -26,6 +28,7 @@ var characters = [
       counterAttack: 12,
       beginImgUrl: "assets/images/vader.jpg",
       attackImgUrl: "assets/images/vaderatt.png",
+      damageIncrease: 2
     },
     {
       name: "Kylo Ren",
@@ -35,32 +38,37 @@ var characters = [
       counterAttack: 9,
       beginImgUrl: "assets/images/Kylo_Ren_rest.png",
       attackImgUrl: "assets/images/kylo-ren-star-wars.jpg",
+      damageIncrease: 9
     }
   ];
 var attacker1 = []
 var defender1 = []
 
 
+
 // window.onload = function startgame(){
 //     $(".hide1").hide();
 //   }
 $(document).ready(function(){
-    $(".hide1").hide();
+    // var pageLoadAudio = new Audio ("assets/audio/Star_Wars_Theme.mp3")
+    $(".hide1").hide()
+    $(".hide4").hide();
+    // pageLoadAudio.play()
     for (var i = 0; i < characters.length; i++) {
-        $("#char"+(i+1)+"a").html(characters[i].name);
+        $(".char"+(i+1)+"a").html(characters[i].name);
         // $(".char"+(i+1)).val(characters[i].name);
-        $("#char"+(i+1)+"b").html('<img src='+characters[i].beginImgUrl+' alt="Char Image" class="characterImage" />');
+        $(".char"+(i+1)+"b").html('<img src='+characters[i].beginImgUrl+' alt="Char Image" class="characterImage" />');
         // var img = $('<img />').attr({
         //     'src':characters[i].beginImgUrl,
         //     'alt':"Char Image",
         //     'class': "characterImage",
         // })
         // $("#char"+(i+1)+"b").html(img)
-        $("#char"+(i+1)+"c").html(characters[i].health).val(characters[i].health)
-        $(".char"+(i+1)).val(i);
+        $(".char"+(i+1)+"c").html(characters[i].health)
+        $(".char"+(i+1)).attr("value", i);
         // console.log($("#char"+(i+1)+"c").val())
-        console.log($(".char"+(i+1)).val())
-        console.log($(".char"+(i+1)))
+        // console.log($(".char"+(i+1)).attr("value"))
+        // console.log($(".char"+(i+1)))
         // $(".char"+(i+1)).val(characters[i].health);
         // console.log (characters[i].beginImgUrl)
     }
@@ -69,49 +77,114 @@ $(document).ready(function(){
     var defenderSelected=0
     var attackerValue=[]
     var defenderValue=[]
+    var defendersDefeated = 0
+    var attackerFinal=0
+    var currentDefender = 0
+    var attackerHealth=0
+    var defenderHealth=0
+    var attackerDamage=0
+    var defenderDamage=0
+    var attackerName=0
+    var defenderName=0
+    var attackerIncrease=0
+    var lossAudio = new Audio("assets/audio/Imperial_song.mp3")
+    var winAudio = new Audio ("assets/audio/victory.mp3")
+    var attAudio = new Audio ("assets/audio/Lightsaber_Clash.mp3")
+    var selectCharAudio = new Audio ("assets/audio/Lightsaber_Turn On.mp3")
     
         $(".char1,.char2,.char3,.char4").on("click", function() {
             if((attackerSelected===0)){
                 var attacker = this;
                 // attacker1.push(this)
-                console.log(this)
-                console.log($(this).val())
+                // console.log(this)
+                // console.log($(this).attr("value"))
                 // console.log(attacker1)
-                attackerValue.push($(this).val())
-                console.log(attackerValue)
+                attackerValue.push($(this).attr("value"))
+                // console.log(attackerValue)
                 var attackerClone = $(attacker).clone();
-                $(".char8").replaceWith(attackerClone).attr("class","char8")
+                $(".char8").replaceWith(attackerClone)
                 var enemies = $(".char1,.char2,.char3,.char4").not(this)
-                console.log(enemies)
+                // console.log(enemies)
                 for (j=0; j<enemies.length-1;j++){
                     var enemiesClone = $(enemies[j]).clone(true)
                     $(".char"+(j+5)).replaceWith(enemiesClone)
-                    console.log($(".char"+(j+1)).not(this).val())
+                    // console.log($(".char"+(j+1)).not(this).val())
                 }
                 $(".hide1").show();
-                $(".hide2").hide();
+                $(".hide4").show();
+                $(".hide2").remove();
                 $(".hide3").hide();
+                attackerFinal = parseInt(attackerValue);
+                $(".char"+(attackerFinal+1)+"b").html('<img src='+characters[attackerFinal].attackImgUrl+' alt="Char Image" class="characterImage" />');
+                attackerHealth=characters[attackerFinal].health;
+                attackerName=characters[attackerFinal].name;
+                attackerIncrease=characters[attackerFinal].damageIncrease;
+                selectCharAudio.play()
                 attackerSelected++
             }
             else if (defenderSelected===0) {
                 var defender = this;
                 // defender1.push(this)
-                console.log(this)
-                defenderValue.push($(this).val())
-                console.log($(this).val())
-                console.log(defenderValue)
+                // console.log(this)
+                defenderValue.push($(this).attr("value"))
+                // console.log($(this).attr("value"))
+                // console.log(defenderValue)
                 var defenderClone = $(defender).clone();
-                $(".char9").replaceWith(defenderClone).attr("class","char9")
-                $(this).hide()
+                console.log(currentDefender)
+                if(currentDefender===0){
+                    $(".char9").replaceWith(defenderClone);
+                }
+                else{
+                    $(".char"+currentDefender+1).replaceWith(defenderClone);
+                }  
+                $(this).remove()
+                $(".hide4").hide();
+                $(".hide1").show();
+                currentDefender = parseInt(defenderValue);
+                $(".char"+(currentDefender+1)+"b").html('<img src='+characters[currentDefender].attackImgUrl+' alt="Char Image" class="characterImage" />');                
+                defenderHealth=characters[currentDefender].health
+                attackerDamageBase=characters[attackerFinal].attack*(defendersDefeated+1)
+                defenderDamage=characters[currentDefender].counterAttack                
+                defenderName=characters[currentDefender].name
+                selectCharAudio.play()
                 defenderSelected++
+            }})
+        var attacks=0
+    
+        $(".btn-danger").click(function(){          
+            if(attackerHealth > 1 && defenderHealth > 0){
+                attAudio.play()
+                attackerDamage = attackerDamageBase+(attackerIncrease*attacks);
+                defenderHealth = defenderHealth-attackerDamage;
+                attackerHealth = attackerHealth-defenderDamage;
+                $(".char"+(attackerFinal+1)+"c").html(attackerHealth);
+                $(".char"+(currentDefender+1)+"c").html(defenderHealth);
+                $("#result").html("Result: <br>"+attackerName+" attacked " +defenderName+" for "+attackerDamage+" points. "+defenderName+" counterattacked for "+defenderDamage+" points.<br>Health Remaining: <br>"+attackerName+":"+attackerHealth+"<br>"+defenderName+":"+defenderHealth);
+                attacks++;
             }
-        $(".btn-danger").on("click", function(){
-            console.log($("attacker1").find($(".char1a")).text())
-            console.log($("defender1").find($(".char4a")).text())
+            if(defenderHealth<1){
+                defendersDefeated++;
+                console.log(defendersDefeated)
+                $(".hide1").hide();
+                $(".hide4").show();
+                defenderSelected=0;
+
+            }
+            if(attackerHealth<1){
+                $("#result").html("Result: <br> Dishonor, You have failed your mission!!!");
+                lossAudio.play()
+            }
+            if(defendersDefeated==3){
+                $(".hide1").show();
+                $("#result").html("Result: <br> Congratulations, You have saved the galaxy!!!");
+                $(".hide4").hide();
+                winAudio.play()
+            }
+
+
+
         })
+        
+    
     })
-    }
-
-
-)
 

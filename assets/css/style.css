@@ -40,7 +40,7 @@ body {
 
 }
 #result {
-    text-decoration: underline;
+    color: red
 }
 .row {
     text-align:center;
