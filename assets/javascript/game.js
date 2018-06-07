@@ -172,6 +172,7 @@ $(document).ready(function(){
                 $("#result").html("Result: <br>"+attackerName+" attacked " +defenderName+" for "+attackerDamage+" points. "+defenderName+" counterattacked for "+defenderDamage+" points.<br>Health Remaining: <br>"+attackerName+":"+attackerHealth+"<br>"+defenderName+":"+defenderHealth);
                 attacks++;
             }
+            
             if(defenderHealth<1){
                 defendersDefeated++;
                 // console.log(defendersDefeated)
@@ -181,18 +182,25 @@ $(document).ready(function(){
                 // currentDefender
 
             }
-            if(attackerHealth<1){
-                $("#result").html("Result: <br> Dishonor, You have failed your mission!!!");
-                lossAudio.play();
-                $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>")
-            }
-            if(defendersDefeated==3){
+            if(defendersDefeated==3 && attackerHealth<1){
+                $("#result").html("Result: <br> Silence falls on the galaxy as both Good and Evil have fallen this day!!!");
+                $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>");
                 $(".hide1").show();
-                $("#result").html("Result: <br> Congratulations, You have saved the galaxy!!!");
                 $(".hide4").hide();
-                winAudio.play();
-                $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>")
             }
+            else {
+                if(attackerHealth<1){
+                    $("#result").html("Result: <br> Dishonor, You have failed your mission!!!");
+                    lossAudio.play();
+                    $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>")
+                }
+                if(defendersDefeated==3){
+                    $(".hide1").show();
+                    $("#result").html("Result: <br> Congratulations, You have saved the galaxy!!!");
+                    $(".hide4").hide();
+                    winAudio.play();
+                    $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>")
+            }}
 
 
 
