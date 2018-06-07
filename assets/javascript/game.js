@@ -190,10 +190,14 @@ $(document).ready(function(){
                 $("#result").html("Result: <br> Congratulations, You have saved the galaxy!!!");
                 $(".hide4").hide();
                 winAudio.play()
+                $(".btn-danger").html("Reset!!").removeClass("btn-danger").addClass("btn-primary")
             }
 
 
 
+        })
+        $(".btn-primary").click(function(){
+            location.reload(true);
         })
         
     
