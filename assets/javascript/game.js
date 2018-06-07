@@ -4,28 +4,28 @@ var characters = [
       name: "Luke",
       faction: "Jedi",
       health: 150,
-      attack: 10,
-      counterAttack: 15,
+      attack: 9,
+      counterAttack: 14,
       beginImgUrl: "assets/images/luke.jpg",
       attackImgUrl: "assets/images/lukegreen.jpg",
-      damageIncrease: 8
+      damageIncrease: 5
     },
     {
       name: "Obi Wan",
       faction: "Jedi",
-      health: 120,
-      attack: 7,
-      counterAttack: 5,
+      health: 130,
+      attack: 8,
+      counterAttack: 14,
       beginImgUrl: "assets/images/obiwancalm.jpg",
       attackImgUrl: "assets/images/obiwan.jpg",
-      damageIncrease: 5
+      damageIncrease: 7
     },
     {
       name: "Darth Vader",
       faction: "Sith",
-      health: 200,
+      health: 210,
       attack: 9,
-      counterAttack: 12,
+      counterAttack: 9,
       beginImgUrl: "assets/images/vader.jpg",
       attackImgUrl: "assets/images/vaderatt.png",
       damageIncrease: 2
@@ -33,12 +33,12 @@ var characters = [
     {
       name: "Kylo Ren",
       faction: "Sith",
-      health: 140,
+      health: 170,
       attack: 8,
-      counterAttack: 9,
+      counterAttack: 10,
       beginImgUrl: "assets/images/Kylo_Ren_rest.png",
       attackImgUrl: "assets/images/kylo-ren-star-wars.jpg",
-      damageIncrease: 9
+      damageIncrease: 4
     }
   ];
 var attacker1 = []
