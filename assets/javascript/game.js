@@ -183,21 +183,22 @@ $(document).ready(function(){
             }
             if(attackerHealth<1){
                 $("#result").html("Result: <br> Dishonor, You have failed your mission!!!");
-                lossAudio.play()
+                lossAudio.play();
+                $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>")
             }
             if(defendersDefeated==3){
                 $(".hide1").show();
                 $("#result").html("Result: <br> Congratulations, You have saved the galaxy!!!");
                 $(".hide4").hide();
-                winAudio.play()
-                $(".btn-danger").html("Reset!!").removeClass("btn-danger").addClass("btn-primary")
+                winAudio.play();
+                $("#newButton").append("<button type='button' class='btn btn-primary'>Reset!!</button>")
             }
 
 
 
-        })
-        $(".btn-primary").click(function(){
-            location.reload(true);
+        });
+        $("#newButton").click(function(){
+            document.location.reload(true);
         })
         
     
